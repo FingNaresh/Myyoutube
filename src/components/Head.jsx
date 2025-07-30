@@ -1,15 +1,30 @@
 import React from 'react'
+import { toggleMenu } from '../utils/appSlice';
+import { useDispatch } from 'react-redux';
+
 
 const Head = () => {
+  const dispatch = useDispatch();
+
+  const toggleMenuHandler = () => {
+    // Dispatch an action to toggle the menu
+    dispatch(toggleMenu());
+  };
+
   return (
     <div className='grid grid-flow-col p-5 m-2 shadow-lg'>
       <div className='flex col-span-1'>
         <img 
-        className='h-8'
-         alt="menu" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0evWy6vmua96UkF8RqHQv-SoBcuu3V9fwZw&s"/>
+        onClick={()=>toggleMenuHandler()}
+        className='h-8 cursor-pointer'
+         alt="menu" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0evWy6vmua96UkF8RqHQv-SoBcuu3V9fwZw&s"
+         />
+         <a href='/'> 
       <img 
         className='h-8 mx-2'
-      alt="youtube-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR45UNTww5HJBpMDY2Rh54zVMUCRnyApgGVWw&s"/>
+      alt="youtube-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR45UNTww5HJBpMDY2Rh54zVMUCRnyApgGVWw&s"
+      />
+      </a>
     </div>
     <div className='col-span-10 px-10'>
         <input className='w-1/2 border-gray-400 p-2 rounded-l-full' type="text"/>
